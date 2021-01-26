@@ -39,4 +39,4 @@ jobs:
         run: npm install -g surge
       
       - name: Deploying on Surge
-        run: surge ./build xtreecommerce.surge.sh --token ${{secrets.SURGE_TOKEN}}
+        run: surge ./build --domain https://xtreecommerce.surge.sh --token ${{secrets.SURGE_TOKEN}}
