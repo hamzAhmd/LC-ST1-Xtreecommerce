@@ -2,13 +2,13 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,16 +27,10 @@ jobs:
       - name: Installing Node
         uses: actions/setup-node@v2-beta
         with:
-          node version: 12 
-        
-      - name: Installing Yarn
-        run: yarn
-        
-      - name: Creating Build
-        run: yarn build
-        
+          node version: 12
+
       - name: Installing Surge
         run: npm install -g surge
-      
+
       - name: Deploying on Surge
-        run: surge ./build --domain https://xtreecommerce.surge.sh --token ${{secrets.SURGE_TOKEN}}
+        run: surge ./ --domain https://xtreeindustry.surge.sh --token ${{secrets.SURGE_TOKEN}}
